@@ -2,9 +2,9 @@
 
 # Teknologi
 * Brug Java 26.
-Brug ikke database.
-Brug ikke Spring Boot eller andre frameworks.
-Hold løsningen enkel og forståelig.
+* Brug ikke database.
+* Brug ikke Spring Boot eller andre frameworks.
+* Hold løsningen enkel og forståelig.
 
 # GitHub workflow
 Når du arbejder med en udviklingsopgave:
