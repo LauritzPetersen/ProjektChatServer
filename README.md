@@ -13,10 +13,10 @@
 # Arbejdsproces 
 
 ### Udvikl programmet i mindre trin: 
-#### Få én klient til at forbinde og sende én besked.  
-#### Tilføj ExecutorService, og forbind mindst tre klienter.  
-#### Tilføj unikke brugernavne og broadcast.  
-#### Tilføj chatrum og private beskeder.  
-#### Tilføj fejlhåndtering og korrekt afbrydelse.  
-#### Gennemfør de obligatoriske tests.  
-#### Implementer den valgte udvidelse.  
+#### * Få én klient til at forbinde og sende én besked.  
+#### * Tilføj ExecutorService, og forbind mindst tre klienter.  
+#### * Tilføj unikke brugernavne og broadcast.  
+#### * Tilføj chatrum og private beskeder.  
+#### * Tilføj fejlhåndtering og korrekt afbrydelse.  
+#### * Gennemfør de obligatoriske tests.  
+#### * Implementer den valgte udvidelse.  
