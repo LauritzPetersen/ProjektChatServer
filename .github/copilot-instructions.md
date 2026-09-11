@@ -1,4 +1,5 @@
 # Mini Chat Server
+Dette er en programmeringsopgave. 
 
 # Teknologi
 * Brug Java 26.
@@ -28,5 +29,5 @@ Når du arbejder med en udviklingsopgave:
 18. Flyt ikke selv et Issue til Done uden menneskelig godkendelse.
 
 # Kvalitet
-AI-genereret kode er ikke automatisk korrekt.
-Koden skal kunne forklares, testes og reviewes af udvikleren.
+* AI-genereret kode er ikke automatisk korrekt.
+* Koden skal kunne forklares, testes og reviewes af udvikleren.
