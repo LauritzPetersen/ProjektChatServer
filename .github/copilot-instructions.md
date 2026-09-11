@@ -29,7 +29,8 @@ Når du arbejder med en udviklingsopgave:
 18. Flyt ikke selv et Issue til Done uden menneskelig godkendelse.
 
 # Kontekst
-Program beskrivelse
+* Architectur skal være Clean Architectur.
+* Der skal bruges Try-With-Resources.
 
 # Kvalitet
 * AI-genereret kode er ikke automatisk korrekt.
