@@ -28,6 +28,9 @@ Når du arbejder med en udviklingsopgave:
 17. Merge ikke uden menneskelig godkendelse.
 18. Flyt ikke selv et Issue til Done uden menneskelig godkendelse.
 
+# Kontekst
+Program beskrivelse
+
 # Kvalitet
 * AI-genereret kode er ikke automatisk korrekt.
 * Koden skal kunne forklares, testes og reviewes af udvikleren.
