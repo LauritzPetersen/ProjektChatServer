@@ -1,7 +1,7 @@
 # Mini Chat Server
 
 # Teknologi
-Brug Java 26.
+* Brug Java 26.
 Brug ikke database.
 Brug ikke Spring Boot eller andre frameworks.
 Hold løsningen enkel og forståelig.
