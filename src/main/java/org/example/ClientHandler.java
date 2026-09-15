@@ -166,6 +166,7 @@ public class ClientHandler implements Runnable {
         }
 
         String formattedMessage = MESSAGE_PARSER.formatMessage(message);
+        logServerMessage(formattedMessage);
         ChatRoomManager.addMessageToHistory(roomName, formattedMessage);
 
         for (String user : ChatRoomManager.getMembers(roomName)) {
@@ -190,8 +191,13 @@ public class ClientHandler implements Runnable {
         }
 
         String formattedMessage = MESSAGE_PARSER.formatMessage(message);
+        logServerMessage(formattedMessage);
         targetClient.sendMessage(formattedMessage);
         sendMessage(formattedMessage);
+    }
+
+    private void logServerMessage(String formattedMessage) {
+        System.out.println(formattedMessage);
     }
 
     private String resolveRoomName(Message message) {
