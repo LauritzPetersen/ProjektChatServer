@@ -10,7 +10,7 @@ public class MessageParser {
 
     public Message parseIncoming(String rawMessage, String sender) {
         if (rawMessage == null || rawMessage.isBlank()) {
-            throw new IllegalArgumentException("Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
+            throw new IllegalArgumentException("Beskeden må ikke være tom.");
         }
 
         String[] parts = rawMessage.split("\\|", 3);
@@ -21,10 +21,6 @@ public class MessageParser {
         String typeText = parts[0].trim();
         String target = parts[1].trim();
         String payload = parts[2].trim();
-
-        if (typeText.isEmpty() || target.isEmpty() || payload.isEmpty()) {
-            throw new IllegalArgumentException("Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
-        }
 
         MessageType type = resolveType(typeText);
         return new Message(type, target, payload, sender);
@@ -51,10 +47,6 @@ public class MessageParser {
         if ("ROOM".equals(normalized)) {
             return MessageType.PUBLIC;
         }
-        try {
-            return MessageType.valueOf(normalized);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.", e);
-        }
+        return MessageType.valueOf(normalized);
     }
 }
