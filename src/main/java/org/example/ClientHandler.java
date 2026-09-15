@@ -50,8 +50,10 @@ public class ClientHandler implements Runnable {
         } finally {
             if (username != null) {
                 ClientRegistry.unregister(username);
-                for (String roomName : joinedRooms) {
+                for (String roomName : List.copyOf(joinedRooms)) {
+                    List<String> members = ChatRoomManager.getMembers(roomName);
                     ChatRoomManager.removeUserFromRoom(roomName, username);
+                    broadcastUserLeftRoom(roomName, username, members);
                 }
             }
             ChatServer.activeConnections.decrementAndGet();
@@ -114,7 +116,9 @@ public class ClientHandler implements Runnable {
                     break;
             }
         } catch (IllegalArgumentException e) {
-            out.println("ERROR|" + e.getMessage());
+            out.println("ERROR|Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
+        } catch (RuntimeException e) {
+            out.println("ERROR|Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
         }
     }
 
@@ -198,6 +202,18 @@ public class ClientHandler implements Runnable {
 
     private void logServerMessage(String formattedMessage) {
         System.out.println(formattedMessage);
+    }
+
+    private void broadcastUserLeftRoom(String roomName, String username, List<String> members) {
+        String leaveMessage = "USER_LEFT|" + roomName + "|" + username;
+        for (String member : members) {
+            if (!username.equals(member)) {
+                ClientHandler client = ClientRegistry.get(member);
+                if (client != null) {
+                    client.sendMessage(leaveMessage);
+                }
+            }
+        }
     }
 
     private String resolveRoomName(Message message) {
