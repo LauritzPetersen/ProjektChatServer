@@ -25,7 +25,7 @@ public class ChatRoomManager {
             return false;
         }
         String normalizedRoom = normalizeRoomName(roomName);
-        return normalizedRoom != null && DEFAULT_ROOMS.contains(normalizedRoom);
+        return DEFAULT_ROOMS.contains(normalizedRoom);
     }
 
     public static void ensureDefaultRoomExists(String roomName) {

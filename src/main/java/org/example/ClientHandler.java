@@ -12,7 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ClientHandler implements Runnable {
 
-    private static final String LOGIN_PREFIX = "LOGIN||";
     private static final MessageParser MESSAGE_PARSER = new MessageParser();
 
     private final Socket socket;
@@ -30,7 +29,7 @@ public class ClientHandler implements Runnable {
             this.out = new PrintWriter(socket.getOutputStream(), true);
 
             out.println("Welcome");
-            out.println("Please login with LOGIN||<username>");
+            out.println("Type a unique username to log in or type QUIT to exit.");
 
             String clientMessage;
             while ((clientMessage = in.readLine()) != null) {
@@ -70,12 +69,10 @@ public class ClientHandler implements Runnable {
     }
 
     private void handleLogin(String clientMessage, PrintWriter out) {
-        if (!clientMessage.startsWith(LOGIN_PREFIX)) {
-            out.println("ERROR|Please log in with LOGIN||<username>");
-            return;
-        }
 
-        String requestedUsername = clientMessage.substring(LOGIN_PREFIX.length()).trim();
+
+
+        String requestedUsername = clientMessage.trim();
         if (requestedUsername.isEmpty()) {
             out.println("ERROR|Username cannot be empty. Please choose a new name:");
             return;
@@ -91,8 +88,13 @@ public class ClientHandler implements Runnable {
             return;
         }
 
+
         this.username = requestedUsername;
-        out.println("LOGIN_OK|" + requestedUsername);
+        out.println("You are logged in as " + username);
+        out.println("You can now send messages in the format: TYPE|TARGET|PAYLOAD");
+        out.println("Available message types: PUBLIC, PRIVATE, JOIN_ROOM, LEAVE_ROOM, LIST_ROOMS");
+        out.println("Available rooms: public 1, public 2, public 3");
+        out.println("Type your own message after here:");
         System.out.println("User logged in: " + requestedUsername);
     }
 
@@ -138,10 +140,10 @@ public class ClientHandler implements Runnable {
         joinedRooms.add(roomName);
 
         List<String> history = ChatRoomManager.getRoomHistory(roomName);
-        if (!history.isEmpty()) {
-            out.println("ROOM_HISTORY|" + roomName + "|" + String.join("||", history));
-        }
         out.println("ROOM_JOINED|" + roomName);
+        if (!history.isEmpty()) {
+            out.println("ROOM_HISTORY|" + roomName + "|\n" + String.join("\n", history));
+        }
     }
 
     private void handleLeaveRoom(Message message, PrintWriter out) {
@@ -178,10 +180,10 @@ public class ClientHandler implements Runnable {
         ChatRoomManager.addMessageToHistory(roomName, formattedMessage);
 
         for (String user : ChatRoomManager.getMembers(roomName)) {
-            ClientHandler client = ClientRegistry.getClientHandler(user);
-            if (client != null) {
-                client.sendMessage(formattedMessage);
-            }
+                ClientHandler client = ClientRegistry.getClientHandler(user);
+                if (client != null) {
+                    client.sendMessage(formattedMessage);
+                }
         }
     }
 

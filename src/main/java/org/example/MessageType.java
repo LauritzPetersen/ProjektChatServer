@@ -7,6 +7,5 @@ public enum MessageType {
     QUIT,
     JOIN_ROOM,
     LEAVE_ROOM,
-    LIST_ROOMS,
-    LOGIN;
+    LIST_ROOMS;
 }
