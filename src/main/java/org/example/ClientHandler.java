@@ -46,7 +46,11 @@ public class ClientHandler implements Runnable {
                 }
             }
         } catch (IOException ioe) {
-            System.out.println("Error: " + ioe.getMessage());
+            if(username != null) {
+                System.out.println("Connection lost with user: " + username);
+            } else {
+                System.out.println("Connection lost with an unauthenticated client.");
+            }
         } finally {
             if (username != null) {
                 ClientRegistry.unregister(username);

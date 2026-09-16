@@ -38,9 +38,6 @@ public class MessageParser {
                 + SEPARATOR + message.getPayload();
     }
 
-    public String parseMessage(Message message, String sender) {
-        return formatMessage(new Message(message.getMessageType(), message.getTarget(), message.getPayload(), sender));
-    }
 
     private MessageType resolveType(String typeText) {
         String normalized = typeText.trim().toUpperCase(Locale.ROOT);

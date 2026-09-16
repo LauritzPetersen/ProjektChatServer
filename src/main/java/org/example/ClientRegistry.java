@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -8,7 +9,12 @@ public class ClientRegistry {
     private static final ConcurrentMap<String, ClientHandler> ACTIVE_USERS = new ConcurrentHashMap<>();
 
     public static boolean isUsernameTaken(String username) {
-        return ACTIVE_USERS.containsKey(username);
+        for (String activeUsername : ACTIVE_USERS.keySet()) {
+            if (activeUsername.equalsIgnoreCase(username)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean register(String username, ClientHandler clientHandler) {
