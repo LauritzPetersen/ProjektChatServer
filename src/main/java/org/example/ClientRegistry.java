@@ -29,11 +29,4 @@ public class ClientRegistry {
         ACTIVE_USERS.remove(username);
     }
 
-    public static void unregister(ClientHandler clientHandler) {
-        ACTIVE_USERS.entrySet().removeIf(entry -> entry.getValue() == clientHandler);
-    }
-
-    public static int size() {
-        return ACTIVE_USERS.size();
-    }
 }

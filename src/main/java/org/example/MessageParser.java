@@ -10,12 +10,12 @@ public class MessageParser {
 
     public Message parseIncoming(String rawMessage, String sender) {
         if (rawMessage == null || rawMessage.isBlank()) {
-            throw new IllegalArgumentException("Beskeden må ikke være tom.");
+            throw new IllegalArgumentException("Message cannot be null or blank.");
         }
 
         String[] parts = rawMessage.split("\\|", 3);
         if (parts.length < 3) {
-            throw new IllegalArgumentException("Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
+            throw new IllegalArgumentException("Invalid format. Please use TYPE|TARGET|PAYLOAD.");
         }
 
         String typeText = parts[0].trim();
@@ -28,7 +28,7 @@ public class MessageParser {
 
     public String formatMessage(Message message) {
         if (message == null) {
-            throw new IllegalArgumentException("Message kan ikke være null.");
+            throw new IllegalArgumentException("Message cannot be null.");
         }
 
         return LocalDateTime.now().format(DTF)

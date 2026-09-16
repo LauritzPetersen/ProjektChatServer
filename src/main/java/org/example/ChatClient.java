@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class ChatClient {
 
-    private static final String HOST = "localhost";
-    private static final int PORT = 5005;
-    private static final String LOGIN_PROMPT = "Please login";
-
     public static void main(String[] args) {
+        final String HOST = "localhost"; // Default host
+        final int PORT = 5005; // Default port
+        final String LOGIN_PROMPT = "Please login"; // Default login prompt
+
         try (Socket socket = new Socket(HOST, PORT);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              Scanner consoleInput = new Scanner(System.in)) {
@@ -22,7 +22,7 @@ public class ChatClient {
             serverListener.waitForMessageMatching(message -> message.startsWith(LOGIN_PROMPT));
 
             while (true) {
-                System.out.print("Vælg brugernavn (eller QUIT): ");
+                System.out.print("Choose username (or QUIT): ");
                 String username = consoleInput.nextLine();
                 if ("QUIT".equalsIgnoreCase(username)) {
                     out.println("QUIT");
@@ -33,10 +33,10 @@ public class ChatClient {
                 String response = serverListener.waitForMessageMatching(message ->
                         message.startsWith("LOGIN_OK|") || message.startsWith("ERROR|"));
                 if (response.startsWith("LOGIN_OK|")) {
-                    System.out.println("Du er logget ind som " + username);
+                    System.out.println("You are logged in as " + username);
                     break;
                 }
-                System.out.println("Prøv venligst et nyt brugernavn.");
+                System.out.println("Please try a different username.");
             }
 
             while (consoleInput.hasNextLine()) {
@@ -50,10 +50,10 @@ public class ChatClient {
 
             listenerThread.join(1000);
         } catch (IOException e) {
-            System.out.println("client fejl: " + e.getMessage());
+            System.out.println("client error: " + e.getMessage());
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.out.println("client blev afbrudt");
+            System.out.println("The client was disconnected unexpectedly.");
         }
     }
 }

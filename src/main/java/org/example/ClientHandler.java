@@ -64,7 +64,7 @@ public class ClientHandler implements Runnable {
             try {
                 socket.close();
             } catch (IOException e) {
-                System.out.println("Fejl ved lukning af socket: " + e.getMessage());
+                System.out.println("Error with closing of the socket: " + e.getMessage());
             }
         }
     }
@@ -116,20 +116,20 @@ public class ClientHandler implements Runnable {
                     handleListRooms(out);
                     break;
                 default:
-                    out.println("ERROR|Ugyldig beskedstype: " + message.getMessageType());
+                    out.println("ERROR|Invalid message type: " + message.getMessageType());
                     break;
             }
         } catch (IllegalArgumentException e) {
-            out.println("ERROR|Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
+            out.println("ERROR|Invalid format. Use TYPE|TARGET|PAYLOAD.");
         } catch (RuntimeException e) {
-            out.println("ERROR|Ugyldigt format. Brug TYPE|TARGET|PAYLOAD.");
+            out.println("ERROR|Invalid format. Use TYPE|TARGET|PAYLOAD.");
         }
     }
 
     private void handleJoinRoom(Message message, PrintWriter out) {
         String roomName = resolveRoomName(message);
         if (!ChatRoomManager.isValidRoom(roomName)) {
-            out.println("ERROR|Ugyldigt rum. Tilgængelige rum: public 1, public 2, public 3");
+            out.println("ERROR|Invalid room. Available rooms: public 1, public 2, public 3");
             return;
         }
 
@@ -147,7 +147,7 @@ public class ClientHandler implements Runnable {
     private void handleLeaveRoom(Message message, PrintWriter out) {
         String roomName = resolveRoomName(message);
         if (!ChatRoomManager.isValidRoom(roomName)) {
-            out.println("ERROR|Ugyldigt rum. Tilgængelige rum: public 1, public 2, public 3");
+            out.println("ERROR|Invalid room. Available rooms: public 1, public 2, public 3");
             return;
         }
 
@@ -164,12 +164,12 @@ public class ClientHandler implements Runnable {
     private void handleRoomMessage(Message message, PrintWriter out) {
         String roomName = resolveRoomName(message);
         if (!ChatRoomManager.isValidRoom(roomName)) {
-            out.println("ERROR|Ugyldigt rum. Tilgængelige rum: public 1, public 2, public 3");
+            out.println("ERROR|Invalid room. Available rooms: public 1, public 2, public 3");
             return;
         }
 
         if (!joinedRooms.contains(roomName)) {
-            out.println("ERROR|Du er ikke medlem af rummet " + roomName + ".");
+            out.println("ERROR|You are not a member of the room " + roomName + ".");
             return;
         }
 
@@ -188,13 +188,13 @@ public class ClientHandler implements Runnable {
     private void handlePrivateMessage(Message message, PrintWriter out) {
         String targetUser = message.getTarget();
         if (targetUser == null || targetUser.isBlank()) {
-            out.println("ERROR|Private target mangler.");
+            out.println("ERROR|Private recipient is missing.");
             return;
         }
 
         ClientHandler targetClient = ClientRegistry.getClientHandler(targetUser);
         if (targetClient == null) {
-            out.println("ERROR|Brugeren " + targetUser + " findes ikke.");
+            out.println("ERROR|The user " + targetUser + " is not online.");
             return;
         }
 

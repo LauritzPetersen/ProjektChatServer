@@ -38,7 +38,7 @@ public class ServerListener implements Runnable {
             }
         } catch (IOException e) {
             if (!socket.isClosed()) {
-                System.out.println("forbindelse til server blev afbrudt: " + e.getMessage());
+                System.out.println("The connection with the server is closed: " + e.getMessage());
             }
         }
     }

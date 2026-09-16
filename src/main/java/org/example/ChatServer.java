@@ -10,30 +10,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ChatServer {
 
-    private static final int PORT = 5005;
-    private static final int MAX_CLIENTS = 3;
+
 
     public static AtomicInteger activeConnections = new AtomicInteger(0);
 
     public static void main(String[] args){
+
+        final int PORT = 5005;
+        final int MAX_CLIENTS = 3;
+
         System.out.println("ChatServer is running on port " + PORT + " with a maximum of " + MAX_CLIENTS + " clients.");
         ExecutorService pool = Executors.newFixedThreadPool(MAX_CLIENTS);
         try(ServerSocket serverSocket = new ServerSocket(PORT)){
             while(true){
                 Socket socket = serverSocket.accept();
                 if(activeConnections.get() >= MAX_CLIENTS){
-                    System.out.println("afviser ny klient: maks antal klienter nået");
+                    System.out.println("Rejects new client: Max amount of clients reached");
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                    out.println("Serveren er fuld. Prøv igen senere.");
+                    out.println("The server is full. Please try again later.");
                     socket.close();
                     continue;
                 }
             activeConnections.incrementAndGet();
-            System.out.println("Accepterer ny klient");
+            System.out.println("Accepts a new client");
             pool.submit(new ClientHandler(socket));
             }
         } catch (IOException e){
-            System.out.println("server fejl: " + e.getMessage());
+            System.out.println("server error: " + e.getMessage());
         } finally {
             pool.shutdown();
         }

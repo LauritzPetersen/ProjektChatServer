@@ -31,7 +31,7 @@ public class ChatRoomManager {
     public static void ensureDefaultRoomExists(String roomName) {
         String normalizedRoom = normalizeRoomName(roomName);
         if (!isValidRoom(normalizedRoom)) {
-            throw new IllegalArgumentException("Ugyldigt rum. Tilgængelige rum: public 1, public 2, public 3");
+            throw new IllegalArgumentException("Invalid room. Available rooms: public 1, public 2, public 3");
         }
 
         ROOM_MEMBERS.computeIfAbsent(normalizedRoom, key -> new CopyOnWriteArrayList<>());
