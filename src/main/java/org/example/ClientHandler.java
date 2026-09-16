@@ -174,7 +174,7 @@ public class ClientHandler implements Runnable {
         ChatRoomManager.addMessageToHistory(roomName, formattedMessage);
 
         for (String user : ChatRoomManager.getMembers(roomName)) {
-            ClientHandler client = ClientRegistry.get(user);
+            ClientHandler client = ClientRegistry.getClientHandler(user);
             if (client != null) {
                 client.sendMessage(formattedMessage);
             }
@@ -188,7 +188,7 @@ public class ClientHandler implements Runnable {
             return;
         }
 
-        ClientHandler targetClient = ClientRegistry.get(targetUser);
+        ClientHandler targetClient = ClientRegistry.getClientHandler(targetUser);
         if (targetClient == null) {
             out.println("ERROR|Brugeren " + targetUser + " findes ikke.");
             return;
@@ -208,7 +208,7 @@ public class ClientHandler implements Runnable {
         String leaveMessage = "USER_LEFT|" + roomName + "|" + username;
         for (String member : members) {
             if (!username.equals(member)) {
-                ClientHandler client = ClientRegistry.get(member);
+                ClientHandler client = ClientRegistry.getClientHandler(member);
                 if (client != null) {
                     client.sendMessage(leaveMessage);
                 }

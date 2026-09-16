@@ -15,6 +15,10 @@ public class ClientRegistry {
         return ACTIVE_USERS.putIfAbsent(username, clientHandler) == null;
     }
 
+    public static ClientHandler getClientHandler(String username) {
+        return ACTIVE_USERS.get(username);
+    }
+
     public static void unregister(String username) {
         ACTIVE_USERS.remove(username);
     }
