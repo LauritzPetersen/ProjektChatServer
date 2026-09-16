@@ -33,9 +33,6 @@ public class ChatRoomManager {
         if (!isValidRoom(normalizedRoom)) {
             throw new IllegalArgumentException("Invalid room. Available rooms: public 1, public 2, public 3");
         }
-
-        ROOM_MEMBERS.computeIfAbsent(normalizedRoom, key -> new CopyOnWriteArrayList<>());
-        ROOM_HISTORY.computeIfAbsent(normalizedRoom, key -> new CopyOnWriteArrayList<>());
     }
 
     public static boolean addUserToRoom(String roomName, String username) {

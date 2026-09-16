@@ -22,6 +22,7 @@ public class ServerListener implements Runnable {
             while ((serverMessage = in.readLine()) != null) {
                 System.out.println(serverMessage);
             }
+            System.out.println("Server connection closed.");
         } catch (IOException e) {
             if (!socket.isClosed()) {
                 System.out.println("The connection with the server is closed: " + e.getMessage());

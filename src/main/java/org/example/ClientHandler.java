@@ -34,7 +34,11 @@ public class ClientHandler implements Runnable {
             String clientMessage;
             while ((clientMessage = in.readLine()) != null) {
                 if (clientMessage.equalsIgnoreCase("QUIT")) {
-                    System.out.println("Client disconnected");
+                    if (username == null) {
+                        System.out.println("Client disconnected");
+                    } else {
+                        System.out.println("User disconnected: " + username);
+                    }
                     break;
                 }
 
