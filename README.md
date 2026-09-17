@@ -58,7 +58,7 @@
 <img width="910" height="672" alt="image" src="https://github.com/user-attachments/assets/6490a03a-7621-4e2e-9991-589ce5b77b17" />
 <img width="865" height="156" alt="image" src="https://github.com/user-attachments/assets/4857477d-0791-4126-bf03-871baea2c69e" />
 
-### Første implementeringsplan havde nogle mangler som vi kontrollede ved at gennemlæse kodeændringerne, derfor beder vi aganten om en opdateret implementeringsplan. 
+### Første implementeringsplan havde nogle mangler som vi kontrollede ved at gennemlæse kodeændringerne, derfor beder vi agenten om en opdateret implementeringsplan. 
 
 <img width="916" height="432" alt="image" src="https://github.com/user-attachments/assets/837fe627-24ea-4c64-bb7f-515ba70c4281" />
 <img width="901" height="347" alt="image" src="https://github.com/user-attachments/assets/135914e4-fd2e-4919-86ce-e1806ed9ee53" />
