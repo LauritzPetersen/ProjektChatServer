@@ -52,7 +52,7 @@
 <img width="867" height="617" alt="image" src="https://github.com/user-attachments/assets/ca4db3fe-e19a-4ce4-a5b4-d1913db48497" />
 <img width="837" height="455" alt="image" src="https://github.com/user-attachments/assets/bbebc625-4bcf-41a2-9f7b-433f7188e636" />
 
-### Vi ville sikre os at forbindelsen til serveren ikke lukkede hvis et brugernavn var optaget og gav derfor nogen endnu ekstra tydlige instrukser for at sikre at fejlhåndtering håndteres korrekt.
+### Vi ville sikre os at forbindelsen til serveren ikke lukkede hvis et brugernavn var optaget og gav derfor nogen ekstra tydlige instrukser for at sikre at fejlhåndtering håndteres korrekt.
 
 <img width="892" height="637" alt="image" src="https://github.com/user-attachments/assets/34e77c3e-ed9c-422c-a830-050a7507f6b4" />
 <img width="910" height="672" alt="image" src="https://github.com/user-attachments/assets/6490a03a-7621-4e2e-9991-589ce5b77b17" />
