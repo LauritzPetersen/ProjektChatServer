@@ -46,10 +46,7 @@
 | Opgave | AI-værktøj |  AI's forslag | Vores vurdering og ændringer | Kontrol og test |
 | --- | --- | --- | --- | --- |
 | Planlægning af generelle trin | Gemini som planlægningsværktøj | Her er en detaljeret implementeringsplan bygget oven på jeres egne 7 trin, hvor vi inkorporerer jeres klasser, trådhåndtering og protokol... læs mere her https://gemini.google.com/share/7014a30133f7?skid=faed004c-6ab9-4957-a9cf-18042e4cce2d | Vi vurderede hvert trin og inkorporerede dem som issues, med lidt finpudsning samt tilføjede nogle ekstra trin selv | Som kontrol evaluerede baseret på egen viden og evner samt løbende som del af udviklingen | 
-|  |  | | | |
-|  |  | | | |
-|  |  | | | |
-|  |  | | | |
+
 
 
 # Valgt udvidelse
