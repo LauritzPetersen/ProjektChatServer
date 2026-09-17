@@ -47,7 +47,7 @@
 |  |  | | | |
 |  |  | | | |
 |  |  | | | |
-
+<img width="741" height="357" alt="billede" src="https://github.com/user-attachments/assets/434d0e20-dd75-4329-af4e-d2610d09413c" />
 
 # Valgt udvidelse
 
