@@ -70,7 +70,7 @@
 <img width="851" height="582" alt="image" src="https://github.com/user-attachments/assets/c0808016-9d43-495a-bdcf-940bdfcf8649" />
 <img width="862" height="422" alt="image" src="https://github.com/user-attachments/assets/40c5c08a-0d9b-49d5-ace0-ac3c7ee0bb5f" />
 
-### Vi gennemtester den nye kode ved at køre programmet og kontrollere om systemet virker som det skal i forhold til oprettelse af bruger. Det virker ikke som det skal, men vi har problemer med at finde den konkrete fejl, og prompter derfor agenten igen og med de konkrete fejl vi ahr fundet, og beder den arbejde på en løsning samt finde grunden til at programmet ikke virker. 
+### Vi gennemtester den nye kode ved at køre programmet og kontrollere om systemet virker som det skal i forhold til oprettelse af bruger. Det virker ikke som det skal, men vi har problemer med at finde den konkrete fejl, og prompter derfor agenten igen og med de konkrete fejl vi har fundet, og beder den arbejde på en løsning samt finde grunden til at programmet ikke virker. 
 
 <img width="895" height="456" alt="image" src="https://github.com/user-attachments/assets/b4b6325d-5efa-41ea-bb34-d80b7f5b242f" />
 <img width="902" height="347" alt="image" src="https://github.com/user-attachments/assets/dadde409-72e0-4a99-addf-34e0e6bf2836" />
