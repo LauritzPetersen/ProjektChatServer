@@ -14,6 +14,10 @@
 
 <img width="1041" height="787" alt="billede" src="https://github.com/user-attachments/assets/069b39ce-9179-47a3-a9bc-2419527c6f1c" />
 
+# SekvensDiagram 
+
+<img width="1259" height="513" alt="image" src="https://github.com/user-attachments/assets/26a29c3f-38e6-473d-be9e-ae50a5fa045c" />
+
 
 
 # Trådmodel?
