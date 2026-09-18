@@ -12,7 +12,7 @@
 
 # Klassediagram
 
-<img width="1041" height="787" alt="billede" src="https://github.com/user-attachments/assets/069b39ce-9179-47a3-a9bc-2419527c6f1c" />
+<img width="1157" height="830" alt="billede" src="https://github.com/user-attachments/assets/1cc90907-6433-4f8c-8b1f-0b7ec367449f" />
 
 # SekvensDiagram 
 
